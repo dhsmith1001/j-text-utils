@@ -46,6 +46,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
+                <version>3.3</version>
 				<configuration>
 					<source>1.7</source>
 					<target>1.7</target>
@@ -54,12 +55,53 @@
 		</plugins>
 	</build>
 
-	<distributionManagement>
-		<repository>
-			<uniqueVersion>false</uniqueVersion>
-			<id>googlecode</id>
-			<url>svn:https://j-text-utils.googlecode.com/svn/trunk/repo/</url>
-		</repository>
-	</distributionManagement>
+	<!-- Nexus server(s) for publishing snapshots & releases -->
+ <distributionManagement>
+
+     <!-- Publish the versioned releases here -->
+     <repository>
+         <id>nexus</id>
+         <name>Nexus Release Repo</name>
+         <url>http://nexus.idmapps.nqbuild.lab/nexus/content/repositories/releases</url>
+     </repository>
+
+     <!-- Publish the snapshot releases here -->
+     <snapshotRepository>
+         <id>nexus</id>
+         <name>Nexus Snapshot Repo</name>
+         <url>http://nexus.idmapps.nqbuild.lab/nexus/content/repositories/snapshots</url>
+     </snapshotRepository>
+
+ </distributionManagement>
+
+ <!-- Download artifacts from this repository -->
+ <repositories>
+     <repository>
+         <id>nexus</id>
+         <name>NetIQ Nexus Repo</name>
+         <url>http://nexus.idmapps.nqbuild.lab/nexus/content/repositories/snapshots</url>
+         <releases>
+             <enabled>true</enabled>
+         </releases>
+         <snapshots>
+             <enabled>true</enabled>
+         </snapshots>
+     </repository>
+ </repositories>
+
+ <!-- Download plugins from this repository -->
+ <pluginRepositories>
+     <pluginRepository>
+         <id>nexus</id>
+         <name>NetIQ Nexus Repo</name>
+         <url>http://nexus.idmapps.nqbuild.lab/nexus/content/repositories/snapshots</url>
+         <releases>
+             <enabled>true</enabled>
+         </releases>
+         <snapshots>
+             <enabled>true</enabled>
+         </snapshots>
+     </pluginRepository>
+ </pluginRepositories>
 
 </project>
