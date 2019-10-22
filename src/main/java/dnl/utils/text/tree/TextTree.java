@@ -1,12 +1,11 @@
 package dnl.utils.text.tree;
 
-import java.io.PrintStream;
-
 import javax.swing.tree.TreeModel;
+import java.io.PrintStream;
 
 /**
  * Implements a tree that renders into text.
- * 
+ *
  * @author Daniel Orr
  */
 public class TextTree {
@@ -28,8 +27,8 @@ public class TextTree {
 
 	/**
 	 * Sets wether to show the root node or not.
-	 * 
-	 * @param showRoot
+	 *
+	 * @param showRoot true to show root
 	 */
 	public void setShowRoot(boolean showRoot) {
 		this.showRoot = showRoot;
@@ -44,8 +43,8 @@ public class TextTree {
 
 	/**
 	 * Prints this tree to the given stream.
-	 * 
-	 * @param printStream
+	 *
+	 * @param printStream a PrintStream instance to print the tree to
 	 */
 	public void printTree(PrintStream printStream) {
 		printStream.println(toString());
