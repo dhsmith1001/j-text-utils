@@ -10,15 +10,39 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
 
+/**
+ * Renders a {@link TextTable} as CSV.
+ * <p>
+ * The renderer writes a header row followed by every model row in model order using
+ * OpenCSV.
+ * </p>
+ */
 public class CsvTableRenderer implements TableRenderer {
 
+	/**
+	 * Reserved per-column format metadata for compatibility with the text renderer API.
+	 */
 	protected String[] formats;
+	/**
+	 * Reserved per-column length metadata for compatibility with the text renderer API.
+	 */
 	protected int[] lengths;
 
+	/**
+	 * Table wrapper that supplies the model to render.
+	 */
 	protected TextTable textTable;
 
+	/**
+	 * Cached model reference obtained from {@link #textTable}.
+	 */
 	protected TableModel tableModel;
 
+	/**
+	 * Creates a CSV renderer for the supplied text table.
+	 *
+	 * @param textTable the table whose model should be rendered as CSV
+	 */
 	public CsvTableRenderer(TextTable textTable) {
 		this.textTable = textTable;
 		this.tableModel = textTable.getTableModel();

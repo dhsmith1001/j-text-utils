@@ -4,9 +4,31 @@ import javax.swing.tree.TreeModel;
 import java.io.PrintStream;
 
 /**
- * Implements a tree that renders into text.
+ * Renders a {@link TreeModel} as a plain-text tree diagram.
+ *
+ * <p>The output uses ASCII art to depict parent-child relationships, for example:
+ * <pre>{@code
+ * -- root
+ *    |-- child1
+ *    |   `-- grandchild1
+ *    `-- child2
+ * }</pre>
+ *
+ * <p>By default the root node is included in the output. Call
+ * {@link #setShowRoot(boolean) setShowRoot(false)} to suppress it and start
+ * rendering from the root's immediate children instead.
+ *
+ * <p>Example usage:
+ * <pre>{@code
+ * DefaultMutableTreeNode root = new DefaultMutableTreeNode("root");
+ * root.add(new DefaultMutableTreeNode("child1"));
+ * root.add(new DefaultMutableTreeNode("child2"));
+ * TextTree tree = new TextTree(new DefaultTreeModel(root));
+ * tree.printTree();
+ * }</pre>
  *
  * @author Daniel Orr
+ * @see TreeModel
  */
 public class TextTree {
 
@@ -14,42 +36,66 @@ public class TextTree {
 	private boolean showRoot = true;
 	private StringBuilder sb;
 
+	/**
+	 * Creates a new {@code TextTree} that will render the given {@link TreeModel}.
+	 *
+	 * @param model the tree model to render; must not be {@code null}
+	 */
 	public TextTree(TreeModel model) {
 		this.model = model;
 	}
 
 	/**
-	 * @return <code>true</code> if this tree is set to show the root.
+	 * Returns whether the root node is included in the rendered output.
+	 *
+	 * @return {@code true} if the root node is shown; {@code false} otherwise
 	 */
 	public boolean isShowRoot() {
 		return showRoot;
 	}
 
 	/**
-	 * Sets wether to show the root node or not.
+	 * Controls whether the root node is included in the rendered output.
 	 *
-	 * @param showRoot true to show root
+	 * <p>When set to {@code false}, rendering begins at the root's immediate
+	 * children, which is useful when the root is merely a structural container
+	 * with no meaningful display value.
+	 *
+	 * @param showRoot {@code true} to include the root node in the output;
+	 *                 {@code false} to start from its children
 	 */
 	public void setShowRoot(boolean showRoot) {
 		this.showRoot = showRoot;
 	}
 
 	/**
-	 * Prints this tree to <code>System.out</code>.
+	 * Prints the tree diagram to {@link System#out}.
+	 *
+	 * <p>Equivalent to {@code System.out.println(tree.toString())}.
 	 */
 	public void printTree() {
 		System.out.println(toString());
 	}
 
 	/**
-	 * Prints this tree to the given stream.
+	 * Prints the tree diagram to the given {@link PrintStream}.
 	 *
-	 * @param printStream a PrintStream instance to print the tree to
+	 * <p>Equivalent to {@code printStream.println(tree.toString())}.
+	 *
+	 * @param printStream the stream to write the tree diagram to; must not be {@code null}
 	 */
 	public void printTree(PrintStream printStream) {
 		printStream.println(toString());
 	}
 
+	/**
+	 * Returns a plain-text representation of the tree diagram.
+	 *
+	 * <p>Each call rebuilds the diagram from the current state of the underlying
+	 * {@link TreeModel}, so changes to the model are reflected in subsequent calls.
+	 *
+	 * @return a non-{@code null} string containing the ASCII art tree diagram
+	 */
 	@Override
 	public String toString() {
 		sb = new StringBuilder();
