@@ -1,12 +1,13 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>dnl.utils</groupId>
-	<artifactId>j-text-utils</artifactId>
-	<packaging>jar</packaging>
-	<version>0.3.5</version>
-	<name>Java Text Utilities</name>
-	<url>http://code.google.com/p/j-text-utils</url>
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.github.dhsmith1001</groupId>
+    <artifactId>j-text-utils</artifactId>
+    <packaging>jar</packaging>
+    <version>0.3.5</version>
+    <name>j-text-utils (Java 21 fork)</name>
+    <description>Fork of j-text-utils updated for Java 11 and modern dependencies.</description>
+    <url>https://github.com/dhsmith1001/j-text-utils</url>
 
     <licenses>
         <license>
@@ -23,7 +24,7 @@
         <maven.compiler.release>11</maven.compiler.release>
     </properties>
 
-	<dependencies>
+    <dependencies>
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
@@ -35,20 +36,20 @@
             <version>5.12.0</version>
         </dependency>
         <dependency>
-			<groupId>com.google.guava</groupId>
-			<artifactId>guava</artifactId>
-			<version>33.5.0-jre</version>
-		</dependency>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.13.2</version>
-			<scope>test</scope>
-		</dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>33.5.0-jre</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13.2</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
-	<build>
-		<plugins>
+    <build>
+        <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-enforcer-plugin</artifactId>
@@ -108,15 +109,15 @@
                     </execution>
                 </executions>
             </plugin>
-		</plugins>
-	</build>
+        </plugins>
+    </build>
 
-	<distributionManagement>
-		<repository>
-			<uniqueVersion>false</uniqueVersion>
-			<id>googlecode</id>
-			<url>svn:https://j-text-utils.googlecode.com/svn/trunk/repo/</url>
-		</repository>
-	</distributionManagement>
+    <distributionManagement>
+        <repository>
+            <uniqueVersion>false</uniqueVersion>
+            <id>googlecode</id>
+            <url>svn:https://j-text-utils.googlecode.com/svn/trunk/repo/</url>
+        </repository>
+    </distributionManagement>
 
 </project>
