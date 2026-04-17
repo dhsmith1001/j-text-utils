@@ -2,11 +2,11 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.github.dhsmith1001</groupId>
-    <artifactId>j-text-utils</artifactId>
+    <artifactId>j-text-utils-java21</artifactId>
     <packaging>jar</packaging>
     <version>0.3.5</version>
     <name>j-text-utils (Java 21 fork)</name>
-    <description>Fork of j-text-utils updated for Java 11 and modern dependencies.</description>
+    <description>Fork of j-text-utils updated for Java 21 and modern dependencies.</description>
     <url>https://github.com/dhsmith1001/j-text-utils</url>
 
     <licenses>
@@ -19,9 +19,9 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
-        <maven.compiler.release>11</maven.compiler.release>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
+        <maven.compiler.release>21</maven.compiler.release>
     </properties>
 
     <dependencies>
