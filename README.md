@@ -1,4 +1,2 @@
 # j-text-utils
-Automatically exported from code.google.com/p/j-text-utils
-
-not a project of me, but maybe useful
+This is a fork of https://code.google.com/archive/p/j-text-utils/ that is used in a test utility to print columnar output.

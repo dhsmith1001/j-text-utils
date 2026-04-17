@@ -1,16 +1,14 @@
 package dnl.utils.text.table.csv;
 
+import com.opencsv.CSVWriter;
+import dnl.utils.text.table.TableRenderer;
+import dnl.utils.text.table.TextTable;
+
+import javax.swing.table.TableModel;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
-
-import javax.swing.table.TableModel;
-
-import dnl.utils.text.table.TableRenderer;
-import dnl.utils.text.table.TextTable;
-
-import au.com.bytecode.opencsv.CSVWriter;
 
 public class CsvTableRenderer implements TableRenderer {
 

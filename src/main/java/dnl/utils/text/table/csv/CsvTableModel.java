@@ -1,5 +1,9 @@
 package dnl.utils.text.table.csv;
 
+import com.opencsv.CSVReader;
+import com.opencsv.exceptions.CsvValidationException;
+
+import javax.swing.table.AbstractTableModel;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
@@ -8,29 +12,27 @@ import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.table.AbstractTableModel;
-
-import au.com.bytecode.opencsv.CSVReader;
 
 /**
- * 
+ *
  * @author Daniel Orr
- * 
+ *
  */
 public class CsvTableModel extends AbstractTableModel {
 
 	private String[] columnNames;
 	private List<String[]> lines = new ArrayList<>();
 
-	public CsvTableModel(File csvFile) throws IOException {
+	public CsvTableModel(File csvFile) throws IOException, CsvValidationException {
 		this(new FileReader(csvFile));
 	}
 
-	public CsvTableModel(String csvString) throws IOException {
+	public CsvTableModel(String csvString) throws IOException, CsvValidationException {
 		this(new StringReader(csvString));
 	}
 
-	public CsvTableModel(Reader reader) throws IOException {
+	public CsvTableModel(Reader reader) throws IOException, CsvValidationException
+    {
 		try (CSVReader csvReader = new CSVReader(reader)) {
 			String[] line = null;
 			boolean first = true;
